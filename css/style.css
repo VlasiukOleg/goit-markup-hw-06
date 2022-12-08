@@ -2,6 +2,7 @@
     --primary-text-color: #757575;
     --title-text-color: #212121;
     --accent-color: #2196f3;
+    --accent-hover-color: #188ce8;
     --bg-white-color: #ffffff;
     --primary-bg-color: #2f303a;
     --secondary-bg-color: #f5f4fa;
@@ -26,9 +27,10 @@
     --backdrop-bg-color: rgba(0, 0, 0, 0.2);
     --modal-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
         0px 2px 1px rgba(0, 0, 0, 0.2);
-    /* Forn */
+    /* Form */
     --placeholder-text-color: rgba(117, 117, 117, 0.5);
     --form-input-border: 1px solid rgba(33, 33, 33, 0.2);
+    --form-btn-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 body {
@@ -589,12 +591,19 @@ img {
 .form-subsciption .button {
     display: flex;
     align-items: center;
+
+    transition: background-color var(--primary-duration) var(--primary-cubik);
+}
+
+.form-subsciption .button:hover,
+.form-subsciption .button:focus {
+    background-color: var(--accent-hover-color);
 }
 
 .send-icon {
     display: inline-block;
 
-    padding-left: 10px;
+    margin-left: 10px;
 
     width: 24px;
     height: 24px;
@@ -863,6 +872,15 @@ img {
     display: block;
     padding: 10px 52px;
     margin: 0 auto;
+
+    box-shadow: var(--form-btn-shadow);
+
+    transition: background-color var(--primary-duration) var(--primary-cubik);
+}
+
+.form-person .button:hover,
+.form-person .button:focus {
+    background-color: var(--accent-hover-color);
 }
 
 .form-person-caption {
@@ -871,17 +889,19 @@ img {
     line-height: 1.15;
     text-align: center;
 
-    padding-bottom: 12px;
+    margin-bottom: 12px;
 
     color: var(--title-text-color);
 }
 
 .form-person-field {
-    position: relative;
-
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
+}
+
+.form-input-wrap {
+    position: relative;
 }
 
 .form-person-label {
@@ -889,10 +909,12 @@ img {
     line-height: 1.17;
     letter-spacing: 0.01em;
 
-    padding-bottom: 4px;
+    margin-bottom: 4px;
 }
 
 .form-person-input {
+    width: 100%;
+
     padding: 11px;
 
     padding-left: 42px;
@@ -932,15 +954,13 @@ img {
     color: var(--placeholder-text-color);
 }
 
-.checkbox-wrap {
-    padding-left: 15px;
+.form-person-checkbox {
+    display: flex;
+    align-items: center;
+
+    justify-content: center;
 
     margin-bottom: 30px;
-}
-
-.form-person-checkbox {
-    display: inline-flex;
-    align-items: center;
 }
 
 .checkbox-label .policy-link {
@@ -965,6 +985,8 @@ img {
     position: absolute;
     top: 50%;
     left: 15px;
+
+    transform: translateY(-50%);
 
     display: inline-block;
     width: 18px;
